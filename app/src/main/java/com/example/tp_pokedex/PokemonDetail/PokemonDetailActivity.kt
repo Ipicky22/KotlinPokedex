@@ -18,9 +18,7 @@ class PokemonDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_description_pokemon)
 
-        val infoPokemon = intent.getSerializableExtra("infoPokemon") as PokemonListResponse
-        val idPokemon: String = infoPokemon.url.split('/')[6]
-
+        val idPokemon = intent.getSerializableExtra("idPokemon") as String
         viewModel.loadPokemonDescription(idPokemon)
 
         viewModel.pokemonDescription.observe(this, androidx.lifecycle.Observer { pokeDetail ->

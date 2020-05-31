@@ -17,20 +17,22 @@ class PokemonListAdapter() : RecyclerView.Adapter<PokemonListAdapter.PokemonView
         notifyDataSetChanged()
     }
 
-    var onClickListener: (PokemonListResponse) -> Unit = { }
+    var onClickListener: (String) -> Unit = { }
 
     inner class PokemonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(pokemon: PokemonListResponse) {
             itemView.findViewById<TextView>(R.id.pokemon_nom).text = pokemon.name
             itemView.findViewById<TextView>(R.id.pokemon_type).text = pokemon.url
 
-            itemView.pokemon_description.setOnClickListener   { onClickListener.invoke(pokemon) }
-
             val idPokemon = pokemon.url.split("/")[6]
             Glide.with(this.itemView)
                 .load("https://pokeres.bastionbot.org/images/pokemon/${idPokemon}.png")
                 .into(this.itemView.pokemon_image)
+
+            itemView.pokemon_description.setOnClickListener   { onClickListener.invoke(idPokemon) }
         }
+
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonViewHolder {

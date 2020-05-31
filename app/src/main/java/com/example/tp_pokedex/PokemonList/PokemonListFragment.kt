@@ -40,7 +40,7 @@ class PokemonListFragment : Fragment() {
 
         adapter.onClickListener = {
             val intent = Intent(activity, PokemonDetailActivity::class.java)
-            intent.putExtra("infoPokemon", it as Serializable)
+            intent.putExtra("idPokemon", it as Serializable)
             startActivityForResult(intent,
                 INFO_POKEMON_REQUEST_CODE
             )
