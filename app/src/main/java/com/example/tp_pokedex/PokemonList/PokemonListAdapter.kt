@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.tp_pokedex.Data.PokemonListResponse
 import com.example.tp_pokedex.R
 import kotlinx.android.synthetic.main.item_pokemon.view.*
@@ -24,6 +25,11 @@ class PokemonListAdapter() : RecyclerView.Adapter<PokemonListAdapter.PokemonView
             itemView.findViewById<TextView>(R.id.pokemon_type).text = pokemon.url
 
             itemView.pokemon_description.setOnClickListener   { onClickListener.invoke(pokemon) }
+
+            val idPokemon = pokemon.url.split("/")[6]
+            Glide.with(this.itemView)
+                .load("https://pokeres.bastionbot.org/images/pokemon/${idPokemon}.png")
+                .into(this.itemView.pokemon_image)
         }
     }
 
