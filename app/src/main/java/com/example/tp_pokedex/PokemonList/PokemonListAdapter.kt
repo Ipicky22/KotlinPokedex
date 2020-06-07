@@ -21,7 +21,7 @@ class PokemonListAdapter() : RecyclerView.Adapter<PokemonListAdapter.PokemonView
 
     inner class PokemonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(pokemon: PokemonListResponse) {
-            itemView.findViewById<TextView>(R.id.pokemon_nom).text = pokemon.name
+            itemView.findViewById<TextView>(R.id.pokemon_name).text = pokemon.name
             itemView.findViewById<TextView>(R.id.pokemon_type).text = pokemon.url
 
             val idPokemon = pokemon.url.split("/")[6]
