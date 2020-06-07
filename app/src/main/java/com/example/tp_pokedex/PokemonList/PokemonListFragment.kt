@@ -11,11 +11,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.tp_pokedex.PokemonDetail.PokemonDetailActivity
 import com.example.tp_pokedex.R
 import com.example.tp_pokedex.ViewModel.PokemonViewModel
 import kotlinx.android.synthetic.main.fragment_pokemon_list.*
-import java.io.Serializable
+import androidx.navigation.fragment.findNavController
 
 class PokemonListFragment : Fragment() {
 
@@ -38,17 +37,14 @@ class PokemonListFragment : Fragment() {
         recyclerview.adapter = adapter
         recyclerview.layoutManager = LinearLayoutManager(activity)
 
-        adapter.onClickListener = {
-            val intent = Intent(activity, PokemonDetailActivity::class.java)
-            intent.putExtra("idPokemon", it as Serializable)
-            startActivityForResult(intent,
-                INFO_POKEMON_REQUEST_CODE
-            )
-        }
-
-        viewModel.pokemonList.observe(this, Observer { newList ->
+        viewModel.pokemonList.observe(viewLifecycleOwner, Observer { newList ->
             adapter.list = newList.orEmpty()
         })
+
+        adapter.onClickListener = { pokemon ->
+            val action = PokemonListFragmentDirections.DescriptionPokemon(pokemon)
+            findNavController().navigate(action)
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

@@ -8,11 +8,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.navArgs
 import com.example.tp_pokedex.R
 import com.example.tp_pokedex.ViewModel.PokemonViewModel
 import kotlinx.android.synthetic.main.fragment_description_pokemon.*
 
 class PokemonDetailFragment: Fragment() {
+
+    private val args: PokemonDetailFragmentArgs by navArgs()
 
     private val viewModel by lazy {
         ViewModelProvider(activity as AppCompatActivity).get(PokemonViewModel::class.java)
@@ -20,7 +23,7 @@ class PokemonDetailFragment: Fragment() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.loadPokemonDescription("1")
+        viewModel.loadPokemonDescription(args.pokemonId)
     }
 
     override fun onCreateView(
@@ -34,7 +37,7 @@ class PokemonDetailFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.pokemonDescription.observe(this, Observer { pokemonDetail ->
+        viewModel.pokemonDescription.observe(viewLifecycleOwner, Observer { pokemonDetail ->
             pokemon_detail_name.text = pokemonDetail.name
         })
     }
