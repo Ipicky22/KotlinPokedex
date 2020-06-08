@@ -37,8 +37,8 @@ class PokemonListFragment : Fragment() {
         recyclerview.adapter = adapter
         recyclerview.layoutManager = LinearLayoutManager(activity)
 
-        viewModel.pokemonList.observe(viewLifecycleOwner, Observer { newList ->
-            adapter.list = newList.orEmpty()
+        viewModel.pagedList.observe(viewLifecycleOwner, Observer {
+            adapter.submitList(it)
         })
 
         adapter.onClickListener = { pokemon ->

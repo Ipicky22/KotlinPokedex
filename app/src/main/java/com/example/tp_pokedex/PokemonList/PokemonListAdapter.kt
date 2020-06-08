@@ -3,6 +3,8 @@ package com.example.tp_pokedex.PokemonList
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.paging.PagedListAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.tp_pokedex.Data.PokemonListResponse
@@ -10,7 +12,7 @@ import com.example.tp_pokedex.R
 import kotlinx.android.synthetic.main.item_pokemon.view.*
 import kotlin.properties.Delegates
 
-class PokemonListAdapter() : RecyclerView.Adapter<PokemonListAdapter.PokemonViewHolder>() {
+class PokemonListAdapter() : PagedListAdapter<PokemonListResponse, PokemonListAdapter.PokemonViewHolder>(DIFF_CALLBACK) {
 
     var list: List<PokemonListResponse> by Delegates.observable(emptyList()) { _, _, _ ->
         notifyDataSetChanged()
@@ -44,4 +46,16 @@ class PokemonListAdapter() : RecyclerView.Adapter<PokemonListAdapter.PokemonView
     override fun onBindViewHolder(holder: PokemonViewHolder, position: Int) {
         holder.bind(list[position])
     }
+
+    companion object {
+        private val DIFF_CALLBACK = object :
+            DiffUtil.ItemCallback<PokemonListResponse>() {
+            override fun areItemsTheSame(oldPokemon: PokemonListResponse,
+                                         newPokemon: PokemonListResponse) = oldPokemon.name == newPokemon.name
+
+            override fun areContentsTheSame(oldPokemon: PokemonListResponse,
+                                            newPokemon: PokemonListResponse) = oldPokemon == newPokemon
+        }
+    }
+
 }
