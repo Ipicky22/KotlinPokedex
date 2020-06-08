@@ -3,6 +3,8 @@ package com.example.tp_pokedex.Data
 import com.squareup.moshi.Json
 
 data class PokemonDetailResponse (
+    @Json(name = "id")
+    val id: String,
     @Json(name = "name")
     val name: String,
     @Json(name = "height")
@@ -12,5 +14,7 @@ data class PokemonDetailResponse (
     @Json(name = "types")
     val types: List<PokemonTypesResponse>,
     @Json(name = "sprites")
-    val sprites: PokemonSpritesResponse
+    val sprites: PokemonSpritesResponse,
+    @Json(name = "color")
+    val color: ColorResponse
 )

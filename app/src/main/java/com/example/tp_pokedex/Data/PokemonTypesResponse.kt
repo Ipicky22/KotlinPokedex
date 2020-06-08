@@ -5,7 +5,7 @@ import com.squareup.moshi.Json
 data class PokemonTypesResponse (
 
     @Json(name = "slot")
-    val slot: String,
+    val slot: Int,
     @Json(name = "type")
-    val type: List<TypeResponse>
+    val type: TypeResponse
 )
