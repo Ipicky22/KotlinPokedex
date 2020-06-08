@@ -39,6 +39,8 @@ class PokemonDetailFragment: Fragment() {
 
         viewModel.pokemonDescription.observe(viewLifecycleOwner, Observer { pokemonDetail ->
             pokemon_detail_name.text = pokemonDetail.name
+            pokemon_detail_height.text = pokemonDetail.height
+            pokemon_detail_weight.text = pokemonDetail.weight
         })
     }
 }
