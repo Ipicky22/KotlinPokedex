@@ -2,8 +2,6 @@ package com.example.tp_pokedex.PokemonList
 
 import androidx.paging.PageKeyedDataSource
 import com.example.tp_pokedex.Data.PokemonListResponse
-import com.example.tp_pokedex.Network.Api
-import com.example.tp_pokedex.Network.IPokemonWebService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
