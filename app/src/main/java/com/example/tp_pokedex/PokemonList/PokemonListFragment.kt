@@ -1,7 +1,5 @@
 package com.example.tp_pokedex.PokemonList
 
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -31,40 +29,23 @@ class PokemonListFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_pokemon_list, container, false)
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        viewModel.pagedList.observe(viewLifecycleOwner, Observer {
+            adapter.submitList(it)
+        })
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         recyclerview.adapter = adapter
         recyclerview.layoutManager = LinearLayoutManager(activity)
 
-        viewModel.pokemonList.observe(viewLifecycleOwner, Observer { newList ->
-            adapter.list = newList.orEmpty()
-        })
-
         adapter.onClickListener = { pokemon ->
             val action = PokemonListFragmentDirections.DescriptionPokemon(pokemon)
             findNavController().navigate(action)
         }
     }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == INFO_POKEMON_REQUEST_CODE) {
-            if (resultCode == Activity.RESULT_OK) {
-                recyclerview.adapter?.notifyDataSetChanged()
-            }
-        }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        viewModel.loadPokemon()
-    }
-
-    companion object {
-        const val INFO_POKEMON_REQUEST_CODE= 200
-    }
-
 }
