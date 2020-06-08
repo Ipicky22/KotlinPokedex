@@ -19,11 +19,6 @@ class PokemonViewModel: ViewModel() {
     private val _pokemonDescription = MutableLiveData<PokemonDetailResponse>()
     val pokemonDescription: LiveData<PokemonDetailResponse> = _pokemonDescription
 
-    val pagedList =
-        LivePagedListBuilder(object : DataSource.Factory<Int, PokemonListResponse>() {
-            override fun create(): DataSource<Int, PokemonListResponse> = PokemonPageKeyedDataSource(viewModelScope)
-        }, PER_PAGE).build()
-
     fun loadPokemonDescription(id: String) {
         viewModelScope.launch {
             pokemonRepository.getPokemonDescription(id)?.let {
@@ -31,6 +26,11 @@ class PokemonViewModel: ViewModel() {
             }
         }
     }
+
+    val pagedList =
+        LivePagedListBuilder(object : DataSource.Factory<Int, PokemonListResponse>() {
+            override fun create(): DataSource<Int, PokemonListResponse> = PokemonPageKeyedDataSource(viewModelScope)
+        }, PER_PAGE).build()
 
     companion object {
         private const val PER_PAGE = 20
