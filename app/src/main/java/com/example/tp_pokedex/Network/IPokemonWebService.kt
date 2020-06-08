@@ -1,6 +1,7 @@
 package com.example.tp_pokedex.Network
 
 import com.example.tp_pokedex.Data.PokemonDetailResponse
+import com.example.tp_pokedex.Data.PokemonListResponse
 import com.example.tp_pokedex.Data.PokemonResponse
 import retrofit2.Response
 import retrofit2.http.GET

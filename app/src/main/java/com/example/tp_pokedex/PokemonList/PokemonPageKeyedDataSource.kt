@@ -1,10 +1,10 @@
 package com.example.tp_pokedex.PokemonList
 
-
 import androidx.paging.PageKeyedDataSource
 import com.example.tp_pokedex.Data.PokemonListResponse
 import com.example.tp_pokedex.Network.Api
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 
 class PokemonPageKeyedDataSource(private val scope: CoroutineScope) : PageKeyedDataSource<Int, PokemonListResponse>() {
 
@@ -17,12 +17,18 @@ class PokemonPageKeyedDataSource(private val scope: CoroutineScope) : PageKeyedD
         params: LoadInitialParams<Int>,
         callback: LoadInitialCallback<Int, PokemonListResponse>
     ) {
-        // Charger la page 0, utiliser la callback avec la valeur 1 comme "key"
+        scope.launch {
+            val response = Api.pokemonWebService.getPaginationPokemons(limit = 20, offset =  0)
+            callback.onResult(response.body()!!.results, null, 1)
+        }
     }
 
     override fun loadAfter(params: LoadParams<Int>, callback: LoadCallback<Int, PokemonListResponse>) {
         val currentPage = params.key
         val itemsPerPage = params.requestedLoadSize
-        Api.pokemonWebService.getPaginationPokemons(limit = itemsPerPage, offset = currentPage * itemsPerPage)
+        scope.launch {
+            val response = Api.pokemonWebService.getPaginationPokemons(limit = itemsPerPage, offset = currentPage * itemsPerPage)
+            callback.onResult(response.body()!!.results, currentPage + 1)
+        }
     }
 }

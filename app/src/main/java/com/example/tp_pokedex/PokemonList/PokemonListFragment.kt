@@ -60,7 +60,10 @@ class PokemonListFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.loadPokemon()
+
+        viewModel.pagedList.observe(viewLifecycleOwner, Observer {
+            adapter.submitList(it)
+        })
     }
 
     companion object {
