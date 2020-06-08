@@ -21,8 +21,8 @@ class PokemonListAdapter() : RecyclerView.Adapter<PokemonListAdapter.PokemonView
 
     inner class PokemonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(pokemon: PokemonListResponse) {
-            itemView.findViewById<TextView>(R.id.pokemon_name).text = pokemon.name
-            itemView.findViewById<TextView>(R.id.pokemon_type).text = pokemon.url
+            itemView.pokemon_name.text = pokemon.name
+            itemView.pokemon_type.text = pokemon.url
 
             val idPokemon = pokemon.url.split("/")[6]
             Glide.with(this.itemView)
@@ -31,8 +31,6 @@ class PokemonListAdapter() : RecyclerView.Adapter<PokemonListAdapter.PokemonView
 
             itemView.pokemon_description.setOnClickListener   { onClickListener.invoke(idPokemon) }
         }
-
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonViewHolder {
