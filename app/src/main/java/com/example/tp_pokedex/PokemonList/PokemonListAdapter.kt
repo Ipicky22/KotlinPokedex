@@ -17,9 +17,11 @@ class PokemonListAdapter() : PagedListAdapter<PokemonListResponse, PokemonListAd
 
     inner class PokemonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(pokemon: PokemonListResponse) {
-            itemView.pokemon_name.text = pokemon.name
-
             val idPokemon = pokemon.url.split("/")[6]
+
+            itemView.pokemon_name.text = "#" + idPokemon + "  " + pokemon.name.capitalize()
+
+
             Glide.with(this.itemView)
                 .load("https://pokeres.bastionbot.org/images/pokemon/${idPokemon}.png")
                 .into(this.itemView.pokemon_image)

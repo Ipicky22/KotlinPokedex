@@ -32,7 +32,7 @@
         <Button
             android:id="@+id/pokemon_description"
             android:layout_width="50dp"
-            android:layout_height="75dp"
+            android:layout_height="wrap_content"
             android:layout_toRightOf="@id/pokemon_name"
             android:clickable="true"
             android:focusable="true"
