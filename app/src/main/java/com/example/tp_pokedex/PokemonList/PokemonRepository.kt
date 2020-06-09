@@ -1,5 +1,6 @@
 package com.example.tp_pokedex.PokemonList
 
+import com.example.tp_pokedex.Data.PokemonColorResponse
 import com.example.tp_pokedex.Network.Api
 import com.example.tp_pokedex.Data.PokemonDetailResponse
 import com.example.tp_pokedex.Data.PokemonListResponse
