@@ -1,16 +1,16 @@
 package com.example.tp_pokedex.PokemonList
 
-import com.example.tp_pokedex.Data.PokemonColorResponse
-import com.example.tp_pokedex.Data.PokemonResponse
 import com.example.tp_pokedex.Network.Api
 import com.example.tp_pokedex.Data.PokemonDetailResponse
+import com.example.tp_pokedex.Data.PokemonListResponse
+import com.example.tp_pokedex.Data.PokemonResponse
 
 class PokemonRepository {
 
     private val pokemonWebService = Api.pokemonWebService
 
-    suspend fun refresh(): PokemonResponse? {
-        val response = pokemonWebService.getPokemon()
+    suspend fun getPokemonWithPagination(limit: Int, offset: Int): PokemonResponse? {
+        val response = pokemonWebService.getPokemonWithPagination(limit, offset)
         return if (response.isSuccessful) response.body() else null
     }
 
