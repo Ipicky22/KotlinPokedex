@@ -68,27 +68,21 @@ class PokemonDetailFragment: Fragment() {
             pokemonDetail.stats.forEach{  stat ->
                 when(stat.stat.name) {
                     "hp" -> {
-                        pokemon_stat_hp.text = stat.stat.name
                         pokemon_stat_hp.text = stat.base_stat
                     }
                     "attack" -> {
-                        pokemon_stat_attack.text = stat.stat.name
                         pokemon_stat_attack.text = stat.base_stat
                     }
                     "defense" -> {
-                        pokemon_stat_defense.text = stat.stat.name
                         pokemon_stat_defense.text = stat.base_stat
                     }
                     "special-attack" -> {
-                        pokemon_stat_special_attack.text = stat.stat.name
                         pokemon_stat_special_attack.text = stat.base_stat
                     }
                     "special-defense" -> {
-                        pokemon_stat_special_defense.text = stat.stat.name
                         pokemon_stat_special_defense.text = stat.base_stat
                     }
                     "speed" -> {
-                        pokemon_stat_speed.text = stat.stat.name
                         pokemon_stat_speed.text = stat.base_stat
                     }
                 }

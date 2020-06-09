@@ -103,24 +103,69 @@
             android:orientation="vertical"
             >
 
-            <TextView
-                android:id="@+id/pokemon_stat_hp"
+            <LinearLayout
+                android:id="@+id/hpColumnView"
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
-                android:gravity="center_vertical"/>
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                >
+            <TextView
+                android:id="@+id/pokemon_stat_hp_title"
+                android:layout_width="75dp"
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                android:text="HP"/>
 
-            <TextView
-                android:id="@+id/pokemon_stat_attack"
-                android:layout_width="fill_parent"
-                android:layout_height="50dp"
-                android:gravity="center_vertical"/>
+                <TextView
+                    android:id="@+id/pokemon_stat_hp"
+                    android:layout_width="75dp"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"/>
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/pokemon_stat_defense"
+            <LinearLayout
+                android:id="@+id/attackColumnView"
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
-                android:gravity="center_vertical"
-/>
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                >
+                <TextView
+                    android:id="@+id/pokemon_stat_attack_title"
+                    android:layout_width="75dp"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    android:text="ATK"/>
+
+                <TextView
+                    android:id="@+id/pokemon_stat_attack"
+                    android:layout_width="75dp"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/defenseColumnView"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                >
+                <TextView
+                    android:id="@+id/pokemon_stat_defense_title"
+                    android:layout_width="75dp"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    android:text="DEF"/>
+                <TextView
+                    android:id="@+id/pokemon_stat_defense"
+                    android:layout_width="75dp"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    />
+            </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
@@ -130,26 +175,70 @@
             android:orientation="vertical"
             >
 
-            <TextView
-                android:id="@+id/pokemon_stat_special_attack"
+            <LinearLayout
+                android:id="@+id/atkspeColumnView"
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
-                android:gravity="center_vertical"
-/>
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                >
+                <TextView
+                    android:id="@+id/pokemon_stat_special_attack_title"
+                    android:layout_width="75dp"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    android:text="ATK.Spé"/>
 
-            <TextView
-                android:id="@+id/pokemon_stat_special_defense"
-                android:layout_width="fill_parent"
-                android:layout_height="50dp"
-                android:gravity="center_vertical"
-/>
+                <TextView
+                    android:id="@+id/pokemon_stat_special_attack"
+                    android:layout_width="75dp"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"/>
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/pokemon_stat_speed"
+            <LinearLayout
+                android:id="@+id/defspeColumnView"
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
-                android:gravity="center_vertical"
-/>
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                >
+                <TextView
+                    android:id="@+id/pokemon_stat_special_defense_title"
+                    android:layout_width="75dp"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    android:text="DEF.Spé"/>
+
+                <TextView
+                    android:id="@+id/pokemon_stat_special_defense"
+                    android:layout_width="75dp"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/speedColumnView"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                >
+                <TextView
+                    android:id="@+id/pokemon_stat_speed_title"
+                    android:layout_width="75dp"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    android:text="VIT"/>
+
+                <TextView
+                    android:id="@+id/pokemon_stat_speed"
+                    android:layout_width="75dp"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"/>
+            </LinearLayout>
+
         </LinearLayout>
         </LinearLayout>
     </LinearLayout>
