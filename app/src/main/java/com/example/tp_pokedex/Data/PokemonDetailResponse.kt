@@ -15,6 +15,8 @@ data class PokemonDetailResponse (
     val types: List<PokemonTypesResponse>,
     @Json(name = "sprites")
     val sprites: PokemonSpritesResponse,
+    @Json(name = "stats")
+    val stats: List<PokemonStatsResponse>,
     @Json(name = "color")
     val color: ColorResponse
 )

@@ -49,7 +49,6 @@
         android:layout_marginStart="122dp"
         android:layout_marginLeft="122dp"
         android:layout_marginTop="150dp"
-        android:text="#"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -114,5 +113,40 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="239dp" />
+
+    <TextView
+        android:id="@+id/pokemon_stat_hp"
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
+
+    <TextView
+        android:id="@+id/pokemon_stat_attack"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="150dp"/>
+
+    <TextView
+        android:id="@+id/pokemon_stat_defense"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="250dp"/>
+
+    <TextView
+        android:id="@+id/pokemon_stat_special_attack"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="350dp"/>
+
+    <TextView
+        android:id="@+id/pokemon_stat_special_defense"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="450dp"/>
+
+    <TextView
+        android:id="@+id/pokemon_stat_speed"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="550dp"/>
 
 </RelativeLayout>
