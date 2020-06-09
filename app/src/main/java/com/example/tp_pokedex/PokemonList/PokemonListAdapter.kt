@@ -18,7 +18,6 @@ class PokemonListAdapter() : PagedListAdapter<PokemonListResponse, PokemonListAd
     inner class PokemonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(pokemon: PokemonListResponse) {
             itemView.pokemon_name.text = pokemon.name
-            itemView.pokemon_type.text = pokemon.url
 
             val idPokemon = pokemon.url.split("/")[6]
             Glide.with(this.itemView)
