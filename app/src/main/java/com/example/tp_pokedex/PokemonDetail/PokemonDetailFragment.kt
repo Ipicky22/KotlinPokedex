@@ -51,29 +51,17 @@ class PokemonDetailFragment: Fragment() {
             pokemon_detail_weight.text = pokemonDetail.weight
             pokemon_type_1.text = pokemonDetail.types[0].type.name
 
-            pokemonDetail.stats.forEach { stat ->
-                if(stat.stat.name == "hp") {
-                    pokemon_stat_hp.text = stat.stat.name + " : " + stat.base_stat
-                }
-
-                else if(stat.stat.name == "attack") {
-                    pokemon_stat_attack.text = stat.stat.name + " : " + stat.base_stat
-                }
-
-                else if(stat.stat.name == "defense") {
-                    pokemon_stat_defense.text = stat.stat.name + " : " + stat.base_stat
-                }
-
-                else if(stat.stat.name == "special-attack") {
-                    pokemon_stat_special_attack.text = stat.stat.name + " : " + stat.base_stat
-                }
-                else if(stat.stat.name == "special-defense") {
-                    pokemon_stat_special_defense.text = stat.stat.name + " : " + stat.base_stat
-                }
-                else if(stat.stat.name == "speed") {
-                    pokemon_stat_speed.text = stat.stat.name + " : " + stat.base_stat
-                }
-            }
+            listOf(
+                pokemon_stat_hp,
+                pokemon_stat_attack,
+                pokemon_stat_defense,
+                pokemon_stat_special_attack,
+                pokemon_stat_special_defense,
+                pokemon_stat_speed
+            ).forEachIndexed { index, textview ->
+            val item = pokemonDetail.stats[index]
+            textview.text = "${item.stat.name} : ${item.base_stat}"
+        }
 
             if ( pokemonDetail.types.size > 1 ) {
                 pokemon_type_2.text = pokemonDetail.types[1].type.name
