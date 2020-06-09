@@ -17,10 +17,20 @@ class PokemonListAdapter() : PagedListAdapter<PokemonListResponse, PokemonListAd
 
     inner class PokemonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(pokemon: PokemonListResponse) {
-            itemView.pokemon_name.text = pokemon.name
-            itemView.pokemon_type.text = pokemon.url
-
             val idPokemon = pokemon.url.split("/")[6]
+
+            if (idPokemon.length == 1) {
+                itemView.pokemon_name.text = "#00" + idPokemon + "  " + pokemon.name.capitalize()
+            }
+
+            if (idPokemon.length == 2) {
+                itemView.pokemon_name.text = "#0" + idPokemon + "  " + pokemon.name.capitalize()
+            }
+
+            if (idPokemon.length == 3) {
+                itemView.pokemon_name.text = "#" + idPokemon + "  " + pokemon.name.capitalize()
+            }
+
             Glide.with(this.itemView)
                 .load("https://pokeres.bastionbot.org/images/pokemon/${idPokemon}.png")
                 .into(this.itemView.pokemon_image)

@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.tp_pokedex.Data.PokemonColorResponse
 import androidx.paging.DataSource
 import androidx.paging.LivePagedListBuilder
 import com.example.tp_pokedex.Data.PokemonDetailResponse
@@ -19,10 +20,21 @@ class PokemonViewModel: ViewModel() {
     private val _pokemonDescription = MutableLiveData<PokemonDetailResponse>()
     val pokemonDescription: LiveData<PokemonDetailResponse> = _pokemonDescription
 
+    private val _pokemonColor = MutableLiveData<PokemonColorResponse>()
+    val pokemonColor: LiveData<PokemonColorResponse> = _pokemonColor
+
     fun loadPokemonDescription(id: String) {
         viewModelScope.launch {
             pokemonRepository.getPokemonDescription(id)?.let {
                 _pokemonDescription.value = it
+            }
+        }
+    }
+
+    fun loadPokemonColor(id: String){
+        viewModelScope.launch {
+            pokemonRepository.getPokemonColor(id)?.let {
+                _pokemonColor.value = it
             }
         }
     }
