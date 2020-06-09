@@ -19,8 +19,17 @@ class PokemonListAdapter() : PagedListAdapter<PokemonListResponse, PokemonListAd
         fun bind(pokemon: PokemonListResponse) {
             val idPokemon = pokemon.url.split("/")[6]
 
-            itemView.pokemon_name.text = "#" + idPokemon + "  " + pokemon.name.capitalize()
+            if (idPokemon.length == 1) {
+                itemView.pokemon_name.text = "#00" + idPokemon + "  " + pokemon.name.capitalize()
+            }
 
+            if (idPokemon.length == 2) {
+                itemView.pokemon_name.text = "#0" + idPokemon + "  " + pokemon.name.capitalize()
+            }
+
+            if (idPokemon.length == 3) {
+                itemView.pokemon_name.text = "#" + idPokemon + "  " + pokemon.name.capitalize()
+            }
 
             Glide.with(this.itemView)
                 .load("https://pokeres.bastionbot.org/images/pokemon/${idPokemon}.png")
