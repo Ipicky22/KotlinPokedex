@@ -28,6 +28,11 @@ class PokemonViewModel: ViewModel() {
             pokemonRepository.getPokemonDescription(id)?.let {
                 _pokemonDescription.value = it
             }
+        }
+    }
+
+    fun loadPokemonColor(id: String){
+        viewModelScope.launch {
             pokemonRepository.getPokemonColor(id)?.let {
                 _pokemonColor.value = it
             }
