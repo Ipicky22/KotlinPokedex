@@ -17,7 +17,7 @@ interface IPokemonWebService {
     @GET("pokemon/{id}")
     suspend fun getPokemonDetail(@Path("id") id: String): Response<PokemonDetailResponse>
 
-    @GET("/pokemon-species/{id}")
+    @GET("pokemon-species/{id}")
     suspend fun getPokemonColor(@Path("id") id: String): Response<PokemonColorResponse>
 
 }

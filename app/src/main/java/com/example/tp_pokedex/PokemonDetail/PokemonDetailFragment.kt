@@ -33,6 +33,7 @@ class PokemonDetailFragment: Fragment() {
     override fun onResume() {
         super.onResume()
         viewModel.loadPokemonDescription(args.pokemonId)
+        viewModel.loadPokemonColor(args.pokemonId)
     }
 
     override fun onCreateView(
@@ -61,7 +62,6 @@ class PokemonDetailFragment: Fragment() {
                 pokemon_detail_name.text = "#" + idPokemon + "  " + pokemonDetail.name.capitalize()
             }
 
-            pokemon_detail_height.text = pokemonDetail.height
             pokemon_detail_weight.text = pokemonDetail.weight
             pokemon_type_1.text = pokemonDetail.types[0].type.name
 
@@ -99,6 +99,10 @@ class PokemonDetailFragment: Fragment() {
             Glide.with(view)
                 .load(pokemonDetail.sprites.front_shiny)
                 .into(view.pokemon_sprite_shiny)
+        })
+
+        viewModel.pokemonColor.observe(viewLifecycleOwner, Observer { color ->
+            pokemon_color.text  = color.color.name
         })
     }
 }

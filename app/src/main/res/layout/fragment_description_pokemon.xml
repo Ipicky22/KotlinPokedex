@@ -7,6 +7,13 @@
     android:orientation="vertical"
     android:layout_marginTop="16dp">
 
+    <TextView
+        android:id="@+id/pokemon_color"
+        android:text="Hello"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+/>
+
     <LinearLayout
         android:id="@+id/headerView"
         android:layout_width="fill_parent"
@@ -257,7 +264,5 @@
         android:layout_alignParentBottom="true"
         android:layout_marginTop="695dp"
         android:layout_marginBottom="3dp" />
-
-
 
 </LinearLayout>
