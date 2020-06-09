@@ -18,6 +18,8 @@ import com.example.tp_pokedex.R
 import com.example.tp_pokedex.ViewModel.PokemonViewModel
 import kotlinx.android.synthetic.main.fragment_description_pokemon.*
 import kotlinx.android.synthetic.main.fragment_description_pokemon.view.*
+import kotlinx.android.synthetic.main.item_pokemon.view.*
+import java.lang.Integer.parseInt
 
 
 class PokemonDetailFragment: Fragment() {
@@ -45,8 +47,20 @@ class PokemonDetailFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.pokemonDescription.observe(viewLifecycleOwner, Observer { pokemonDetail ->
-            pokemon_detail_id.text = "#"+pokemonDetail.id
-            pokemon_detail_name.text = pokemonDetail.name
+            val idPokemon = pokemonDetail.id
+
+            if (parseInt(idPokemon) < 10) {
+                pokemon_detail_name.text = "#00" + idPokemon + "  " + pokemonDetail.name.capitalize()
+            }
+
+            else if (parseInt(idPokemon) < 100) {
+                pokemon_detail_name.text = "#0" + idPokemon + "  " + pokemonDetail.name.capitalize()
+            }
+
+            else if (parseInt(idPokemon) < 1000) {
+                pokemon_detail_name.text = "#" + idPokemon + "  " + pokemonDetail.name.capitalize()
+            }
+
             pokemon_detail_height.text = pokemonDetail.height
             pokemon_detail_weight.text = pokemonDetail.weight
             pokemon_type_1.text = pokemonDetail.types[0].type.name
