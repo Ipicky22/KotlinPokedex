@@ -1,24 +1,24 @@
 package com.example.tp_pokedex.PokemonDetail
 
-import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.navigation.ui.AppBarConfiguration
 import com.bumptech.glide.Glide
 import com.example.tp_pokedex.R
 import com.example.tp_pokedex.ViewModel.PokemonViewModel
 import kotlinx.android.synthetic.main.fragment_description_pokemon.*
 import kotlinx.android.synthetic.main.fragment_description_pokemon.view.*
-import kotlinx.android.synthetic.main.item_pokemon.*
-import kotlinx.android.synthetic.main.item_pokemon.view.*
+
 
 class PokemonDetailFragment: Fragment() {
 
@@ -54,9 +54,6 @@ class PokemonDetailFragment: Fragment() {
             if ( pokemonDetail.types.size > 1 ) {
                 pokemon_type_2.text = pokemonDetail.types[1].type.name
             }
-
-            //Log.d("color", pokemonDetail.color.name)
-            //Color_view.setBackgroundColor(Color.parseColor("#ffffff"))
 
             Glide.with(view)
                 .load(pokemonDetail.sprites.front_default)
