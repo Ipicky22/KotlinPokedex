@@ -7,13 +7,6 @@
     android:orientation="vertical"
     android:layout_marginTop="16dp">
 
-    <TextView
-        android:id="@+id/pokemon_color"
-        android:text="Hello"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-/>
-
     <LinearLayout
         android:id="@+id/headerView"
         android:layout_width="fill_parent"
@@ -70,7 +63,8 @@
             android:id="@+id/pokemon_type_1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:gravity="end"/>
+            android:gravity="end"
+            android:textStyle="bold"/>
         </LinearLayout>
 
         <LinearLayout
@@ -82,7 +76,8 @@
         <TextView
             android:id="@+id/pokemon_type_2"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textStyle="bold"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -117,18 +112,21 @@
                 android:orientation="horizontal"
                 android:gravity="center_horizontal"
                 >
-            <TextView
-                android:id="@+id/pokemon_stat_hp_title"
-                android:layout_width="75dp"
-                android:layout_height="fill_parent"
-                android:gravity="center"
-                android:text="HP"/>
+
+                <TextView
+                    android:id="@+id/pokemon_stat_hp_title"
+                    android:layout_width="75dp"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    android:text="HP"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/pokemon_stat_hp"
                     android:layout_width="75dp"
                     android:layout_height="fill_parent"
-                    android:gravity="center"/>
+                    android:gravity="center"
+                    android:textStyle="bold"/>
             </LinearLayout>
 
             <LinearLayout
@@ -143,13 +141,15 @@
                     android:layout_width="75dp"
                     android:layout_height="fill_parent"
                     android:gravity="center"
-                    android:text="ATK"/>
+                    android:text="ATK"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/pokemon_stat_attack"
                     android:layout_width="75dp"
                     android:layout_height="fill_parent"
-                    android:gravity="center"/>
+                    android:gravity="center"
+                    android:textStyle="bold"/>
             </LinearLayout>
 
             <LinearLayout
@@ -164,12 +164,14 @@
                     android:layout_width="75dp"
                     android:layout_height="fill_parent"
                     android:gravity="center"
-                    android:text="DEF"/>
+                    android:text="DEF"
+                    android:textStyle="bold"/>
                 <TextView
                     android:id="@+id/pokemon_stat_defense"
                     android:layout_width="75dp"
                     android:layout_height="fill_parent"
                     android:gravity="center"
+                    android:textStyle="bold"
                     />
             </LinearLayout>
 
@@ -194,13 +196,15 @@
                     android:layout_width="75dp"
                     android:layout_height="fill_parent"
                     android:gravity="center"
-                    android:text="ATK.Spé"/>
+                    android:text="ATK.Spé"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/pokemon_stat_special_attack"
                     android:layout_width="75dp"
                     android:layout_height="fill_parent"
-                    android:gravity="center"/>
+                    android:gravity="center"
+                    android:textStyle="bold"/>
             </LinearLayout>
 
             <LinearLayout
@@ -215,13 +219,15 @@
                     android:layout_width="75dp"
                     android:layout_height="fill_parent"
                     android:gravity="center"
-                    android:text="DEF.Spé"/>
+                    android:text="DEF.Spé"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/pokemon_stat_special_defense"
                     android:layout_width="75dp"
                     android:layout_height="fill_parent"
-                    android:gravity="center"/>
+                    android:gravity="center"
+                    android:textStyle="bold"/>
             </LinearLayout>
 
 
@@ -237,13 +243,15 @@
                     android:layout_width="75dp"
                     android:layout_height="fill_parent"
                     android:gravity="center"
-                    android:text="VIT"/>
+                    android:text="VIT"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/pokemon_stat_speed"
                     android:layout_width="75dp"
                     android:layout_height="fill_parent"
-                    android:gravity="center"/>
+                    android:gravity="center"
+                    android:textStyle="bold"/>
             </LinearLayout>
 
         </LinearLayout>
