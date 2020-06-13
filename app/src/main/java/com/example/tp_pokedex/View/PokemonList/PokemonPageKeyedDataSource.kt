@@ -1,13 +1,15 @@
-package com.example.tp_pokedex.PokemonList
+package com.example.tp_pokedex.View.PokemonList
 
 import androidx.paging.PageKeyedDataSource
-import com.example.tp_pokedex.Data.PokemonListResponse
+import com.example.tp_pokedex.Model.Data.PokemonListResponse
+import com.example.tp_pokedex.Model.Repository.PokemonRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 class PokemonPageKeyedDataSource(private val scope: CoroutineScope) : PageKeyedDataSource<Int, PokemonListResponse>() {
 
-    private val _pokemonRepository = PokemonRepository()
+    private val _pokemonRepository =
+        PokemonRepository()
 
     override fun loadBefore(
         params: LoadParams<Int>,

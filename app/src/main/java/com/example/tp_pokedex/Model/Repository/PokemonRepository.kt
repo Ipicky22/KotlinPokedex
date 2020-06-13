@@ -1,10 +1,9 @@
-package com.example.tp_pokedex.PokemonList
+package com.example.tp_pokedex.Model.Repository
 
-import com.example.tp_pokedex.Data.PokemonColorResponse
-import com.example.tp_pokedex.Network.Api
-import com.example.tp_pokedex.Data.PokemonDetailResponse
-import com.example.tp_pokedex.Data.PokemonListResponse
-import com.example.tp_pokedex.Data.PokemonResponse
+import com.example.tp_pokedex.Model.Data.PokemonColorResponse
+import com.example.tp_pokedex.Model.API.Api
+import com.example.tp_pokedex.Model.Data.PokemonDetailResponse
+import com.example.tp_pokedex.Model.Data.PokemonResponse
 
 class PokemonRepository {
 

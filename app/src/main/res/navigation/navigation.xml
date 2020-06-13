@@ -10,14 +10,14 @@
     tools:ignore="UnusedNavigation">
     <fragment
         android:id="@+id/pokemon_list"
-        android:name="com.example.tp_pokedex.PokemonList.PokemonListFragment">
+        android:name="com.example.tp_pokedex.View.PokemonList.PokemonListFragment">
         <action
             android:id="@+id/DescriptionPokemon"
             app:destination="@id/pokemon_detail" />
     </fragment>
     <fragment
         android:id="@+id/pokemon_detail"
-        android:name="com.example.tp_pokedex.PokemonDetail.PokemonDetailFragment">
+        android:name="com.example.tp_pokedex.View.PokemonDetail.PokemonDetailFragment">
         <argument
             android:name="pokemon_id"
             app:argType="string" />

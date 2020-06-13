@@ -1,6 +1,5 @@
-package com.example.tp_pokedex.PokemonDetail
+package com.example.tp_pokedex.View.PokemonDetail
 
-import android.graphics.Color
 import android.graphics.Color.parseColor
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle

@@ -1,4 +1,4 @@
-package com.example.tp_pokedex.PokemonList
+package com.example.tp_pokedex.View.PokemonList
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -16,7 +16,8 @@ import androidx.navigation.fragment.findNavController
 
 class PokemonListFragment : Fragment() {
 
-    private val adapter = PokemonListAdapter()
+    private val adapter =
+        PokemonPagedListAdapter()
     private val viewModel by lazy {
         ViewModelProvider(activity as AppCompatActivity).get(PokemonViewModel::class.java)
     }
@@ -44,7 +45,10 @@ class PokemonListFragment : Fragment() {
         recyclerview.layoutManager = LinearLayoutManager(activity)
 
         adapter.onClickListener = { pokemon ->
-            val action = PokemonListFragmentDirections.DescriptionPokemon(pokemon)
+            val action =
+                PokemonListFragmentDirections.DescriptionPokemon(
+                    pokemon
+                )
             findNavController().navigate(action)
         }
     }

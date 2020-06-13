@@ -1,4 +1,4 @@
-package com.example.tp_pokedex.Network
+package com.example.tp_pokedex.Model.API
 
 import com.squareup.moshi.Moshi
 import okhttp3.OkHttpClient

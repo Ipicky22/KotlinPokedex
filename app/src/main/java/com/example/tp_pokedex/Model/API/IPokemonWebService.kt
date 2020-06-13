@@ -1,8 +1,8 @@
-package com.example.tp_pokedex.Network
+package com.example.tp_pokedex.Model.API
 
-import com.example.tp_pokedex.Data.PokemonColorResponse
-import com.example.tp_pokedex.Data.PokemonDetailResponse
-import com.example.tp_pokedex.Data.PokemonResponse
+import com.example.tp_pokedex.Model.Data.PokemonColorResponse
+import com.example.tp_pokedex.Model.Data.PokemonDetailResponse
+import com.example.tp_pokedex.Model.Data.PokemonResponse
 import retrofit2.Response
 import retrofit2.http.*
 
