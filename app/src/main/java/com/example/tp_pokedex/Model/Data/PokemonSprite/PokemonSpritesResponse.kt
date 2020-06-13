@@ -1,4 +1,4 @@
-package com.example.tp_pokedex.Model.Data
+package com.example.tp_pokedex.Model.Data.PokemonSprite
 
 import com.squareup.moshi.Json
 

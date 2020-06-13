@@ -1,6 +1,6 @@
 package com.example.tp_pokedex.Model.Data
 
-import com.example.tp_pokedex.Model.Data.PokemonListResponse
+import com.example.tp_pokedex.Model.Data.PokemonList.PokemonListResponse
 import com.squareup.moshi.Json
 
 data class PokemonResponse (

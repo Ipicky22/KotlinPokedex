@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
+import com.example.tp_pokedex.Model.Data.PokemonDetail.PokemonDetailResponse
 import com.example.tp_pokedex.R
 import com.example.tp_pokedex.ViewModel.PokemonViewModel
 import kotlinx.android.synthetic.main.fragment_description_pokemon.*
@@ -41,6 +42,20 @@ class PokemonDetailFragment: Fragment() {
         return inflater.inflate(R.layout.fragment_description_pokemon, container, false)
     }
 
+    private fun prefixName(idPokemon: String, pokemonDetail: PokemonDetailResponse) {
+        if (parseInt(idPokemon) < 10) {
+            pokemon_detail_name.text = "#00" + idPokemon + "  " + pokemonDetail.name.capitalize()
+        }
+
+        else if (parseInt(idPokemon) < 100) {
+            pokemon_detail_name.text = "#0" + idPokemon + "  " + pokemonDetail.name.capitalize()
+        }
+
+        else if (parseInt(idPokemon) < 1000) {
+            pokemon_detail_name.text = "#" + idPokemon + "  " + pokemonDetail.name.capitalize()
+        }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -56,20 +71,10 @@ class PokemonDetailFragment: Fragment() {
             }
         })
 
-        viewModel.pokemonDescription.observe(viewLifecycleOwner, Observer { pokemonDetail ->
+        viewModel.pokemonDetail.observe(viewLifecycleOwner, Observer { pokemonDetail ->
             val idPokemon = pokemonDetail.id
 
-            if (parseInt(idPokemon) < 10) {
-                pokemon_detail_name.text = "#00" + idPokemon + "  " + pokemonDetail.name.capitalize()
-            }
-
-            else if (parseInt(idPokemon) < 100) {
-                pokemon_detail_name.text = "#0" + idPokemon + "  " + pokemonDetail.name.capitalize()
-            }
-
-            else if (parseInt(idPokemon) < 1000) {
-                pokemon_detail_name.text = "#" + idPokemon + "  " + pokemonDetail.name.capitalize()
-            }
+            prefixName(idPokemon, pokemonDetail)
 
             pokemon_detail_weight.text = pokemonDetail.weight
             pokemon_type_1.text = pokemonDetail.types[0].type.name.capitalize()

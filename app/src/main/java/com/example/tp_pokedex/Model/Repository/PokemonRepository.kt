@@ -1,8 +1,8 @@
 package com.example.tp_pokedex.Model.Repository
 
-import com.example.tp_pokedex.Model.Data.PokemonColorResponse
+import com.example.tp_pokedex.Model.Data.PokemonColor.PokemonColorsResponse
 import com.example.tp_pokedex.Model.API.Api
-import com.example.tp_pokedex.Model.Data.PokemonDetailResponse
+import com.example.tp_pokedex.Model.Data.PokemonDetail.PokemonDetailResponse
 import com.example.tp_pokedex.Model.Data.PokemonResponse
 
 class PokemonRepository {
@@ -19,7 +19,7 @@ class PokemonRepository {
         return if (response.isSuccessful) response.body() else null
     }
 
-    suspend fun getPokemonColor(id: String): PokemonColorResponse? {
+    suspend fun getPokemonColor(id: String): PokemonColorsResponse? {
         val response = pokemonWebService.getPokemonColor(id)
         return if (response.isSuccessful) response.body() else null
     }

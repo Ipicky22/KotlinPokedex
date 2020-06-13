@@ -1,5 +1,9 @@
-package com.example.tp_pokedex.Model.Data
+package com.example.tp_pokedex.Model.Data.PokemonDetail
 
+import com.example.tp_pokedex.Model.Data.PokemonColor.PokemonColorResponse
+import com.example.tp_pokedex.Model.Data.PokemonSprite.PokemonSpritesResponse
+import com.example.tp_pokedex.Model.Data.PokemonStat.PokemonStatsResponse
+import com.example.tp_pokedex.Model.Data.PokemonType.PokemonTypesResponse
 import com.squareup.moshi.Json
 
 data class PokemonDetailResponse (
@@ -18,5 +22,5 @@ data class PokemonDetailResponse (
     @Json(name = "stats")
     val stats: List<PokemonStatsResponse>,
     @Json(name = "color")
-    val color: ColorResponse
+    val color: PokemonColorResponse
 )

@@ -7,7 +7,7 @@ import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.tp_pokedex.Model.Data.PokemonListResponse
+import com.example.tp_pokedex.Model.Data.PokemonList.PokemonListResponse
 import com.example.tp_pokedex.R
 import kotlinx.android.synthetic.main.item_pokemon.view.*
 

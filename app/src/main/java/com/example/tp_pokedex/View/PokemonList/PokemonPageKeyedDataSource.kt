@@ -1,7 +1,7 @@
 package com.example.tp_pokedex.View.PokemonList
 
 import androidx.paging.PageKeyedDataSource
-import com.example.tp_pokedex.Model.Data.PokemonListResponse
+import com.example.tp_pokedex.Model.Data.PokemonList.PokemonListResponse
 import com.example.tp_pokedex.Model.Repository.PokemonRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
